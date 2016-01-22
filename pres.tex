@@ -1,0 +1,131 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+\usetheme{Antibes}
+\usecolortheme[named=Maroon]{structure}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{caption}
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+\author{Sergii Kozik}
+\title{Recovery after the Great Recession}
+\subtitle{Importance of policy and fundamentals}
+%\setbeamercovered{transparent} 
+\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+\institute{Heriot-Watt University}
+%\date{} 
+%\subject{} 
+%changing world
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents{}
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Motivation}
+\begin{itemize}
+\item It is well known that different countries were affected in different ways by the recent Great Recession.
+\item Large literature investigated the determinants of these differences: Lane and Milesi-Ferretti (2009), Rose and Spiegel (2009), Cecchetti et al. (2011), Olafsson and Petursson (2010), Frankel and Saravelos (2010).
+\item The differences in recovery seem to be evident by now, however, lack of research on it.
+\end{itemize}
+\end{frame}
+\begin{frame}{Research question}
+Are these cross-country differences purely arbitrary or there are some macroeconomic fundamentals, which may explain this? For example, was it a consequence of good policy frameworks (e.g. inflation targeting, unconventional measures in monetary policy or fiscal adjustments), institutions and decisions taken prior or during the crisis?
+\end{frame}
+\section{The Model}
+\begin{frame}{The Model}
+\begin{equation}
+\begin{split}
+Recovery_{i,3}=\beta_0+\beta_{1}findeep_{i,2}+\beta_{2}tradeopeness_{i,2}+\beta_3fin.openness_{i,2} \\
++\beta_4cap.inflows_{i,2}+\beta_5supervision.quality_{i,2}+\beta_6\Delta{}CAPB_{i,3}+ \\
+\beta_7\Delta{}Policy.rate_{i,3}+\beta_8Crisis_{i,1}    \\
+\end{split}
+\end{equation}
+\begin{itemize}
+\item Where financial deepening, trade/financial openness etc are vectors associated with the related variables.
+\item The model is estimated using Bayesian Model Averaging.
+\end{itemize}
+\end{frame}
+\begin{frame}{Bayesian Model Averaging}
+
+\begin{itemize}
+\item In recent years BMA has become popular in empirical literature. When the researcher has potentially K explanatory variables, she has to choose between $2^K$ models. Therefore, as you increase K, the probability of coming up with the correct model decreases.
+\item It is regarded undesirable to select one “best” model. BMA is a framework that allows to average across those models weighting by their posterior model probabilities, which are measures of their goodness of fit.
+\item If $\phi{}$ is a parameter of interest that we want to examine across the models, then:
+\begin{equation}
+E[g(\phi{})|y]=\sum_kE[g(\phi{})|y,M^k]*p(M^k|y)
+\end{equation}
+\item For our application function of interest is posterior inclusion probability $E[g(\phi{})|y]=p(\phi{}|y)$
+\end{itemize}
+\end{frame}
+\begin{frame}{Bayesian Model Averaging}
+\begin{itemize}
+\item One of the most challenging parts of the analysis is eliciting priors about model parameters. Usually, the researcher specifies non-informative priors:
+$p(h)=\frac{1}{h}; \beta{}|h~N(0,h^{-1}[g_kX_kX_k]^{-1})$
+\item However, implementing Bayesian model averaging can be difficult. If $p(\phi{}|y)$ had to be evaluated through posterior simulation, then K would have to be very small.
+\item Various methods could be followed to approximate the results of BMA. Most popular is Markov Chain Monte Carlo Model Composition $(MC^3)$, which draws models from the model space using Random Walk Metropolis Hastings algorithm.
+\end{itemize}
+\end{frame}
+\section{Results}
+\begin{frame}{Results} 
+\begin{figure}
+\includegraphics[scale=0.45]{ggg1}
+\end{figure}
+\end{frame}
+\begin{frame}{Results} 
+\begin{figure}
+\includegraphics[scale=0.45]{ggg}
+\end{figure}
+\end{frame}
+\section{Monetary policy response}
+\begin{frame}{Monetary policy response} 
+\begin{itemize}
+\item To assess the impact of QE on interest rates, we need to define appropriate counterfactual. Conventional NK models are inappropriate for this since at ZLB, money and bonds become perfect substitutes, so that any swap has no impact on private sector wealth. Therefore, QE is a form of commitment and can have only signalling impact.
+\item However, theoretically, it has been shown that QE can work through preferred habitat and duration channels. , it is plausible that demand for assets is downward sloping, meaning that supply of assets affects its relative prices and interest rates. 
+\item Quantify the impact of large-scale asset purchases (QE) on policy rate, given the constraints policy makers face when the rate is close to its zero-lower band (ZLB), other words construct “shadow policy rate”. 
+\end{itemize}
+\end{frame}
+\begin{frame}{Monetary policy response} 
+\begin{itemize}
+\item Creation of such a metric involves: 
+\begin{enumerate}[i]
+\item An estimate of the effect of asset purchases on the long-term rate. (Examples: for the UK see Breedon, Chadha, Waters (2012), and for the US: Gagnon et al. (2011) and Bernanke (2011b)).
+\item Converting this into equivalent units of the policy rate (i.e., the change in the policy rate that, under conditions in which the policy rate is away from the effective lower bound, would generate the move in the long-term rate as that achieved by asset purchases).
+\end{enumerate}
+\item To perform step 1, usually term-structure model (as in Svensson (1994)) is estimated driven by several macroeconomic factors. This model is then used to estimate predicted yield curve and the difference between actual and counterfactual is attributed to QE, since QE itself is not included as a factor.
+\end{itemize}
+\end{frame}
+\begin{frame}{Monetary policy response} 
+\begin{itemize}
+\item To perform step 2, or to relate LT findings to policy rates one could follow Chung et al. (2012) who use a simple regression of first differences of the ten-year Treasury bond rate on first differences of the federal funds rate over the 20-year period prior to the financial crisis. Chung et al. (2012) find a coefficient of 0.25 for a quarterly sample from 1987 to 2007.
+\item Applying these conversion procedures for the US QE, Bernanke (2011b) showed that LSAP1 was tantamount to a roughly 400 basis point funds-rate cut while LSAP2 to roughly a cut of 40–120 basis points. Daines et al (2012) examined the impact of the Bank of England’s LSAP1 equal to 400 ppt cut in policy rate.
+\end{itemize}
+\end{frame}
+
+\section{Fiscal policy response}
+\begin{frame}{Fiscal policy response} 
+to add
+\end{frame}
+\section{Conclusion}
+\begin{frame}{Conclusion} 
+\setlength{\leftmargini}{0pt}\
+\begin{itemize}
+\item Both monetary and fiscal policy measures seem to have significant effect on the recovery after crisis.
+\item There is some evidence that high Debt/GDP ratio harms the recovery. Possibly, the recovery has been endogenous to the crisis performance or international in nature.
+\item There are still some interesting questions to explore. For example, possibly some of the variables were significant at one stage of recovery while insignificant at the other? Whether Debt/GDP ratio has a non-linear impact on recovery? Whether the major conclusions hold for other samples of countries?
+\end{itemize}
+\end{frame}
+\begin{frame}%%     1
+\begin{center}
+\Huge Thank You for the attention!
+\end{center}
+\end{frame}
+\end{document}
